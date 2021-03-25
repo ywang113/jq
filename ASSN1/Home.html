@@ -56,7 +56,7 @@
                 <form id="login" class="input-group">
                     <input type="text" class="input-field" placeholder="User ID" required>
                     <input type="text" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                    <!-- <input type="checkbox" class="checkbox"><span>Remember Password</span> -->
                     <button type="submit" class="submit-btn">Log In</button>
                 </form>
 
@@ -79,10 +79,55 @@
 
         <section id="home">
             <div class= "home container">
-                <h1>Home Everywhere</h1>
+                <div  class="hero">
+                    <h1>Home <br> Everywhere</h1>
+                </div>
+
+                <div class="searchform-container">
+                    <h2>
+                        Where are you going?
+                    </h2>
+                    <form id="searchForm" class="searchform"  method="post">
+                        <fieldset>
+                            <legend> City </legend>
+                            <select name="selectcity" id="citySelect">
+                                <option value=""，selected: true >--Please choose an option--</option>
+                                <option value="Sydney">Sydney</option>
+                                <option value="Melbourne">Melbourne</option>
+                                <option value="Hobart">Hobart</option>
+                            </select>
+                        </fieldset>
+            
+                        <fieldset>
+                            <legend> Date </legend>
+                            <label for="datecheck">Check-in</label>
+                            <span id="start_date_prompt">
+                                <input type="date" name="dateofcheckin" id="date_checkin">
+                            </span>
+            
+                            <label for="datecheck">Check-out</label>
+                            <span id="end_date_prompt">
+                                <input type="date" name="dateofcheckout" id="date_checkout">
+                            </span>
+                        </fieldset>
+            
+            
+                        <fieldset>
+                            <legend> Guests </legend>
+                            <a href="javascript:" id="num_plus" class="btn btn_plus" role="button"></a>
+                            <input class="inputNum" id="input_num" type=number value="1" size="1">
+                            <a href="javascript:" id="num_minus" class="btn btn_minus" role="button"></a>
+                        </fieldset>
+            
+                        <br><br>			
+            
+                        <input type="submit" value="Search">
+                        
+                    </form>
+                </div>
             </div>
         </section>
-
+        
     </body>
 
 

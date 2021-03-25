@@ -37,14 +37,14 @@ userTypeSelect.onchange = (event) => {
     }
     else{
         abnInput.classList.remove('active')
-        abnInput.required = false
+        abnInput.attributes.required = false
     }
 }
 
 function RegisterOnSubmit(register){
     // validate password
-    const password1 = registForm.password.value
-    const password2 = registForm.conpassword.value
+    const password1 = register.password.value
+    const password2 = register.conpassword.value
 
     if(validatePwd(password1)){
         // validate passed
@@ -83,3 +83,46 @@ function RegisterOnSubmit(register){
        y.style.left = "450px";
        z.style.left = "0";
    }
+
+
+/**
+ * search form
+ */
+
+const searchForm = get('searchForm')
+const citySelect = get('citySelect')
+
+
+// checkIn & checkOut by Today's date
+   var today = new Date().toISOString().split('T')[0];
+
+   document.getElementsByName("dateofcheckin")[0].setAttribute('min', today);
+   document.getElementsByName("dateofcheckout")[0].setAttribute('min', today);
+
+// Guest Number Section
+   var num_minus = document.getElementById("num_minus");
+   var num_plus = document.getElementById("num_plus");
+   var input_num = document.getElementById("input_num");
+
+   num_plus.onclick = function() {
+
+       /*input_num.value = parseInt(input_num.value) + 1;*/
+       input_num.stepUp();
+   }
+   num_minus.onclick = function() {
+
+       if(input_num.value <= 0) {
+           input_num.value = 0;
+       } else {
+
+           input_num.stepDown();
+       }
+   }
+
+// Onsubmit Action Section 
+citySelect.onchange = (event) => {
+    const thisCity = event.target.value
+
+    searchForm.action = `${thisCity}.html`
+}
+
